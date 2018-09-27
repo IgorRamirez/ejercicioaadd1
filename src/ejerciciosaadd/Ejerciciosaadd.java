@@ -8,6 +8,8 @@ package ejerciciosaadd;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.BufferedReader;
+import java.io.BufferedWriter; 
 import java.io.IOException;
 
 /**
@@ -19,7 +21,7 @@ public class Ejerciciosaadd {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         File f = new File("D:\\Igor Ramirez\\ejercicioaadd.xml");
 
@@ -31,12 +33,23 @@ public class Ejerciciosaadd {
         }
         System.out.println("------------------------");
 
-Ejerciciosaadd obj_libros = new Ejerciciosaadd();
+    Ejerciciosaadd obj_libros = new Ejerciciosaadd();
 
     obj_libros.EscribeFicheroTexto();
     obj_libros.LeerFicheroTexto();
+    
+        System.out.println("------------------------");
+        
+    obj_libros.BufferedWritter();
+    obj_libros.BufferedReader();
     }
 
+    
+    
+    
+    
+    //escribe fichero texto file writer
+ 
     public void EscribeFicheroTexto() {
 
         String texto = "<Libros><Libro><Titulo>El Capote</Titulo></Libro></Libros>";
@@ -71,7 +84,8 @@ Ejerciciosaadd obj_libros = new Ejerciciosaadd();
     
      
 
-    
+    //lee fichero texto file reader
+    //-----------------------------------------------------------------------//
 
     public int LeerFicheroTexto() {
 
@@ -94,6 +108,62 @@ Ejerciciosaadd obj_libros = new Ejerciciosaadd();
 
 
 
+    
+    //escribe fichero texto buffered writer
+    //------------------------------------------------------------------------//
+    private void BufferedWritter()throws IOException{
+        try{
+                    BufferedWriter br =new BufferedWriter(new FileWriter("libros.xml"));
+    
+            br.write("<Libros>");
+        br.newLine();
+            br.write("<libro>");
+        br.newLine();
+            br.write("<titulo>");
+        br.newLine();
+            br.write("El capote");
+        br.newLine();
+            br.write("</titulo>");
+        br.newLine();
+            br.write("</libro>");
+        br.newLine();
+            br.write("</Libros>");
+        br.close();
+        }
+        
+    catch(IOException ex)
+            {
+        System.out.print("no puedes acdeder al fichero");
+    }
+   
+
+
+
+
+
+
+
+
+
+    //lee fichero buffered reader
+    //------------------------------------------------------------------------//
+    private void BufferedReader()throws IOException {
+    
+        try{
+                String caracter;
+                BufferedReader bm = new BufferedReader(new FileReader("libros.xml"));
+                
+                while((caracter=bm.readLine())!=null){
+                    System.out.println(caracter);
+                }
+        }
+        catch(IOException ex){ 
+                System.out.print("no puedes acdeder al fichero");
+                }
+        
+            }
+    
+         }
 }
 
 
