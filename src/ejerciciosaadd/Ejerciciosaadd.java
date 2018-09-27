@@ -49,7 +49,8 @@ public class Ejerciciosaadd {
     
     
     //escribe fichero texto file writer
- 
+    //-----------------------------------------------------------------------//
+
     public void EscribeFicheroTexto() {
 
         String texto = "<Libros><Libro><Titulo>El Capote</Titulo></Libro></Libros>";
@@ -57,7 +58,7 @@ public class Ejerciciosaadd {
         String nombre = "src\\ejerciciosaadd\\libros.xml";
 
         try {
-
+            
             FileWriter fichero = new FileWriter(nombre);
 
             fichero.write(texto + "\r\n");
@@ -98,7 +99,7 @@ public class Ejerciciosaadd {
                 //que se pare
                 caracter = a.read();
             }
-
+          
         } catch (IOException ex) {
             System.out.println("error al leer al fichero");
         }
@@ -131,13 +132,10 @@ public class Ejerciciosaadd {
         br.close();
         }
         
-    catch(IOException ex)
-            {
+    catch(IOException ex){
         System.out.print("no puedes acdeder al fichero");
+        }
     }
-   
-
-
 
 
 
@@ -151,6 +149,7 @@ public class Ejerciciosaadd {
     
         try{
                 String caracter;
+                
                 BufferedReader bm = new BufferedReader(new FileReader("libros.xml"));
                 
                 while((caracter=bm.readLine())!=null){
@@ -163,8 +162,10 @@ public class Ejerciciosaadd {
         
             }
     
-         }
+         
 }
+
+
 
 
 //la ruta del archivo
